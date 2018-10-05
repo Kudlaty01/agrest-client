@@ -1,0 +1,25 @@
+{
+  "name": "qdt01/ag-rest",
+  "description": "Simple REST client in PHP. Fast as silver",
+  "type": "project",
+  "require": {
+    "psr/http-message": "1.0.1",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.4"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Paweł Sola",
+      "email": "pawel.sola@pm.me"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Qdt01\\AgRest\\": "src/"
+    }
+  }
+}
