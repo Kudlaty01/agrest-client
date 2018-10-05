@@ -5,7 +5,7 @@
 rename file `src/Modules/ISystems/credentials.json.dist` to `src/Modules/ISystems/credentials.json` and put right authentication data there if you prefer storing the credentials in a file.
 
 ## Usage
-For practical usage a module has to be initialized. The API calls are organized into _spaces_ as for operations on a particular model. i.e.
+For practical usage an environment has to be initialized. The API calls share common _domains_ for share address fragment and for operations on a the same particular model. 
 ```php
 <?php
 use Qdt01\AgRest\Environments\ISystems\ApiCalls\CreateOneProducerApiCall;
