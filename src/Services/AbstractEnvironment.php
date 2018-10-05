@@ -23,6 +23,7 @@ abstract class AbstractEnvironment implements EnvironmentInterface
 
 	/**
 	 * AbstractModule constructor.
+	 * @throws \Qdt01\AgRest\Exceptions\UnresolvedDependencyException
 	 */
 	public function __construct()
 	{
