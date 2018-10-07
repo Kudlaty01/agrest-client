@@ -3,9 +3,9 @@
 namespace Qdt01\AgRest\ApiCalls;
 
 use Psr\Http\Message\RequestFactoryInterface;
-use Qdt01\AgRest\Authentication\AuthorizationInterface;
-use Qdt01\AgRest\Connector\ConnectorInterface;
+use Qdt01\AgRest\Adapters\ResponseToModelAdapterInterface;
 use Qdt01\AgRest\Domains\ModelDomainInterface;
+use Qdt01\AgRest\Modules\ISystems\Models\ModelInterface;
 
 /**
  * Class AbstractApiCall
@@ -15,10 +15,6 @@ use Qdt01\AgRest\Domains\ModelDomainInterface;
 abstract class AbstractApiCall implements ApiCallInterface
 {
 	/**
-	 * @var ConnectorInterface
-	 */
-	protected $connector;
-	/**
 	 * @var ModelDomainInterface
 	 */
 	protected $modelDomain;
@@ -27,32 +23,17 @@ abstract class AbstractApiCall implements ApiCallInterface
 	 */
 	protected $requestFactory;
 	/**
-	 * @var AuthorizationInterface
-	 */
-	protected $authorization;
-	/**
 	 * @var string
 	 */
 	protected $baseEndpoint;
-
 	/**
-	 * @param ConnectorInterface $connector
+	 * @var ModelInterface
 	 */
-	public function setConnector(ConnectorInterface $connector): ApiCallInterface
-	{
-		$this->connector = $connector;
-		return $this;
-	}
-
+	protected $model;
 	/**
-	 * @param AuthorizationInterface $authorization
-	 * @return ApiCallInterface
+	 * @var ResponseToModelAdapterInterface
 	 */
-	public function setAuthorization(AuthorizationInterface $authorization): ApiCallInterface
-	{
-		$this->authorization = $authorization;
-		return $this;
-	}
+	protected $responseToModelAdapter;
 
 	/**
 	 * @param string $baseEndpoint
@@ -73,5 +54,14 @@ abstract class AbstractApiCall implements ApiCallInterface
 		$this->requestFactory = $requestFactory;
 		return $this;
 	}
+
+	/**
+	 * @return ModelInterface
+	 */
+	public function getModel(): ModelInterface
+	{
+		return $this->model;
+	}
+
 
 }
