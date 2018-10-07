@@ -65,8 +65,7 @@ abstract class AbstractRestClient implements RestClientInterface
 	 */
 	protected function setDependencies(ApiCallInterface $apiCall): ApiCallInterface
 	{
-		$apiCall->setConnector($this->connector)
-			->setAuthorization($this->authorization)
+		$apiCall
 			->setBaseEndpoint($this->baseEndpoint)
 			->setRequestFactory($this->requestFactory);
 		return $apiCall;
