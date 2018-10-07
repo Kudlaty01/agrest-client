@@ -1,6 +1,9 @@
 # AgREST Client
 ## REST client quick as a silver
 
+## Note
+please also take a look at a WIP branch: feature/AG-2-php-version-config-in-composer
+
 ## Setup
 rename file `src/Modules/ISystems/credentials.json.dist` to `src/Modules/ISystems/credentials.json` and put right authentication data there if you prefer storing the credentials in a file.
 
