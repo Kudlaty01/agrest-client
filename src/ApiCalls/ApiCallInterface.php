@@ -3,8 +3,8 @@
 namespace Qdt01\AgRest\ApiCalls;
 
 use Psr\Http\Message\RequestFactoryInterface;
-use Qdt01\AgRest\Authentication\AuthorizationInterface;
-use Qdt01\AgRest\Connector\ConnectorInterface;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use Qdt01\AgRest\Domains\ModelDomainInterface;
 use Qdt01\AgRest\Modules\ISystems\Models\ModelInterface;
 
@@ -14,23 +14,14 @@ interface ApiCallInterface
 
 	public function getModel(): ModelInterface;
 
-	/**
-	 * @param ConnectorInterface $connector
-	 * @return ApiCallInterface
-	 */
-	public function setConnector(ConnectorInterface $connector): ApiCallInterface;
-
-	public function setAuthorization(AuthorizationInterface $authorization): ApiCallInterface;
-
 	public function setBaseEndpoint(string $baseEndpoint): ApiCallInterface;
 
 	public function setRequestFactory(RequestFactoryInterface $requestFactory): ApiCallInterface;
 
-	/**
-	 * perform the call
-	 * @return mixed
-	 */
-	public function call(): ApiCallResultInterface;
+	public function getRequest(): RequestInterface;
 
+	public function setResponse(ResponseInterface $response): void;
+
+	public function getApiCallResult(): ApiCallResultInterface;
 
 }
