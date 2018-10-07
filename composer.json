@@ -2,6 +2,11 @@
   "name": "qdt01/ag-rest",
   "description": "Simple REST client in PHP. Fast as silver",
   "type": "project",
+  "config": {
+    "platform": {
+      "php": "7.2"
+    }
+  },
   "require": {
     "psr/http-message": "1.0.1",
     "ext-curl": "*",
