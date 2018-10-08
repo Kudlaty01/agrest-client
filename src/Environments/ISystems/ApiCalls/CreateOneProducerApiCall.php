@@ -24,6 +24,7 @@ class CreateOneProducerApiCall extends AbstractApiCall implements CommandApiCall
 
 	/**
 	 * CreateOneProducerApiCall constructor.
+	 * @param Producer $producer
 	 */
 	public function __construct(Producer $producer)
 	{
