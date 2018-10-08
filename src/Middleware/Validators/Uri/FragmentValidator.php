@@ -17,7 +17,7 @@ class FragmentValidator implements FragmentValidatorInterface
 	public function validate($value): void
 	{
 		if (!is_string($value)) {
-			throw new Exception\InvalidArgumentException(sprintf(
+			throw new \InvalidArgumentException(sprintf(
 				'string argument is expected; received %s',
 				is_object($value) ? get_class($value) : gettype($value)
 			));
