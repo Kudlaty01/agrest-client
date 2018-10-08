@@ -8,6 +8,7 @@ rename file `src/Modules/ISystems/credentials.json.dist` to `src/Modules/ISystem
 For practical usage an environment has to be initialized. The API calls share common _domains_ for share address fragment and for operations on a the same particular model. 
 ```php
 <?php
+require_once 'vendor/autoload.php';
 
 use Qdt01\AgRest\{Environments\ISystems\ApiCalls\GetAllProducersApiCall, Environments\ISystems\ApiCalls\CreateOneProducerApiCall,Modules\ISystems\ISystemsEnvironment,Modules\ISystems\Models\Producer};
 $environment = new ISystemsEnvironment('user','password');
