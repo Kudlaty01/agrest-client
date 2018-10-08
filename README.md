@@ -1,9 +1,6 @@
 # AgREST Client
 ## REST client quick as a silver
 
-## Note
-please also take a look at a WIP branch: feature/AG-1-separate-layers
-
 ## Setup
 rename file `src/Modules/ISystems/credentials.json.dist` to `src/Modules/ISystems/credentials.json` and put right authentication data there if you prefer storing the credentials in a file.
 
@@ -29,8 +26,14 @@ $result = $client->exec(new CreateOneProducerApiCall($producer));
 ```
 
 ## Modularity
-New environments should be defined as extensions of `AbstractEnvironment` and have the required `EnvironmentInterface` methods implemented.\
+### Environments
+New environments should be defined as extensions of `AbstractEnvironment` and have the required `EnvironmentInterface` methods implemented. Dependencies registration and authorization method is also specified there.
+### Api calls
 New api calls are created by implementation of  `ApiCallInterface` and specifically `QueryApiCallInterface` for receiving data and `CommandApiCallInterface` for modifications and new data setup.
+### Models
+Domain models should implement `ModelInterface` (and `ModelArrayInterface` for grouped models returned). Both must also implement `ModelResultInterface` for unified result returning by adapters.
+### Adapters
+For each domain api calls will operate on implementations of `ModelToRequestAdapterInterface` and `ResponseToModelAdapterInterface` are needed to specify stepping between application layers. More precisely extening of the corresponding abstractions `AbstractModelToRequestAdapter` and `AbstractResponseToModelAdapter` will be best.
 
 
 ## Extensibility
