@@ -116,6 +116,7 @@ class JsonResponse extends ContentTypeResponse
 
 	/**
 	 * @param mixed $data
+	 * @return string
 	 * @throws \InvalidArgumentException if unable to encode the $data to JSON.
 	 */
 	private function jsonEncode($data, int $encodingOptions): string
