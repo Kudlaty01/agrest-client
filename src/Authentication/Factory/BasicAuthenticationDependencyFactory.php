@@ -15,6 +15,11 @@ use Qdt01\AgRest\Services\DependencyResolver;
 class BasicAuthenticationDependencyFactory implements DependencyFactoryInterface
 {
 
+	/**
+	 * @param DependencyResolver $dependencyResolver
+	 * @return BasicAuthorization
+	 * @throws \Qdt01\AgRest\Exceptions\UnresolvedDependencyException
+	 */
 	function createDependency(DependencyResolver $dependencyResolver)
 	{
 		/** @var ConnectorInterface $httpClient */
