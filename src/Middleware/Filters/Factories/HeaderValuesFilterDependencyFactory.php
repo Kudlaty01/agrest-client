@@ -3,9 +3,9 @@
 namespace Qdt01\AgRest\Middleware\Filters\Factories;
 
 use Qdt01\AgRest\Middleware\Filters\Message\HeaderValueFilter;
-use Qdt01\AgRest\Services\DependencyResolver;
-use Qdt01\AgRest\Services\DependencyFactoryInterface;
 use Qdt01\AgRest\Middleware\Validators\Message\HeaderValueValidatorInterface;
+use Qdt01\AgRest\Services\DependencyFactoryInterface;
+use Qdt01\AgRest\Services\DependencyResolver;
 
 /**
  * Class HeaderValuesFilterFactory
@@ -15,6 +15,11 @@ use Qdt01\AgRest\Middleware\Validators\Message\HeaderValueValidatorInterface;
 class HeaderValuesFilterDependencyFactory implements DependencyFactoryInterface
 {
 
+	/**
+	 * @param DependencyResolver $dependencyResolver
+	 * @return HeaderValueFilter
+	 * @throws \Qdt01\AgRest\Exceptions\UnresolvedDependencyException
+	 */
 	function createDependency(DependencyResolver $dependencyResolver)
 	{
 		/** @var HeaderValueValidatorInterface $headerValueValidator */
