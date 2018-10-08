@@ -57,9 +57,11 @@ class RequestFactory implements RequestFactoryInterface
 	 * @param HeaderNameValidatorInterface      $headerNameValidator
 	 * @param HeaderValueValidatorInterface     $headerValueValidator
 	 * @param ProtocolVersionValidatorInterface $protocolVersionValidator
+	 * @param HeaderValueFilterInterface        $headerValueFilter
+	 * @param MessageStreamValidatorInterface   $streamValidator
+	 * @param StreamFactoryInterface            $streamFactory
 	 * @param MethodValidatorInterface          $methodValidator
 	 * @param RequestTargetValidatorInterface   $requestTargetValidator
-	 * @param HeaderValueFilterInterface        $headerValueFilter
 	 */
 	public function __construct(
 		HeaderNameValidatorInterface $headerNameValidator,
