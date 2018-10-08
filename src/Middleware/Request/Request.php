@@ -9,8 +9,8 @@ use Qdt01\AgRest\Middleware\{AbstractMessage,
 	Filters\Message\HeaderValueFilterInterface,
 	Validators\Message\HeaderNameValidatorInterface,
 	Validators\Message\HeaderValueValidatorInterface,
-	Validators\Message\ProtocolVersionValidatorInterface,
 	Validators\Message\MessageStreamValidatorInterface,
+	Validators\Message\ProtocolVersionValidatorInterface,
 	Validators\Request\MethodValidatorInterface,
 	Validators\Request\RequestTargetValidator,
 	Validators\Request\RequestTargetValidatorInterface};
@@ -51,10 +51,11 @@ class Request extends AbstractMessage implements RequestInterface
 	 * @param HeaderNameValidatorInterface      $headerNameValidator
 	 * @param HeaderValueValidatorInterface     $headerValueValidator
 	 * @param ProtocolVersionValidatorInterface $protocolVersionValidator
-	 * @param MethodValidatorInterface          $methodValidator
-	 * @param RequestTargetValidatorInterface   $requestTargetValidator
 	 * @param HeaderValueFilterInterface        $headerValueFilter
 	 * @param MessageStreamValidatorInterface   $streamValidator
+	 * @param StreamFactoryInterface            $streamFactory
+	 * @param MethodValidatorInterface          $methodValidator
+	 * @param RequestTargetValidatorInterface   $requestTargetValidator
 	 */
 	public function __construct(
 		HeaderNameValidatorInterface $headerNameValidator,
