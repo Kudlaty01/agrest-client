@@ -1,6 +1,6 @@
 <?php
 
-namespace Qdt01\AgRest\Adapters;
+namespace Qdt01\AgRest\Models;
 
 interface ModelResultInterface
 {

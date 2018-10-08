@@ -48,25 +48,34 @@ abstract class AbstractRestClient implements RestClientInterface
 		$this->requestFactory = $requestFactory;
 	}
 
+	/**
+	 * I know the code is redundant, but explainable
+	 * @param CommandApiCallInterface $commandApiCall
+	 * @return ApiCallResultInterface
+	 */
 	public function exec(CommandApiCallInterface $commandApiCall): ApiCallResultInterface
 	{
-		$this->setDependencies($commandApiCall);
+		$request = $this->setDependencies($commandApiCall)->getRequest();
+		$this->authorization->authorize($request);
+		$response = $this->connector->send($request);
+		$commandApiCall->setResponse($response);
+		return $commandApiCall->getApiCallResult();
+
 	}
 
 	public function get(QueryApiCallInterface $queryApiCall): ApiCallResultInterface
 	{
-		$result = $this->setDependencies($queryApiCall)->call();
-		return $result;
+		$request = $this->setDependencies($queryApiCall)->getRequest();
+		$this->authorization->authorize($request);
+		$response = $this->connector->send($request);
+		$queryApiCall->setResponse($response);
+		return $queryApiCall->getApiCallResult();
 
 	}
 
-	/**
-	 * @param CommandApiCallInterface $commandApiCall
-	 */
 	protected function setDependencies(ApiCallInterface $apiCall): ApiCallInterface
 	{
-		$apiCall->setConnector($this->connector)
-			->setAuthorization($this->authorization)
+		$apiCall
 			->setBaseEndpoint($this->baseEndpoint)
 			->setRequestFactory($this->requestFactory);
 		return $apiCall;

@@ -2,9 +2,9 @@
 
 namespace Qdt01\AgRest\ApiCalls;
 
-use Qdt01\AgRest\Modules\ISystems\Models\ModelInterface;
+use Qdt01\AgRest\Models\ModelResultInterface;
 
 interface ApiCallResultInterface
 {
-	function getModel(): ModelInterface;
+	function getModel(): ?ModelResultInterface;
 }

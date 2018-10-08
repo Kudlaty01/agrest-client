@@ -2,6 +2,8 @@
 
 namespace Qdt01\AgRest\Environments\ISystems\ApiCalls;
 
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use Qdt01\AgRest\ApiCalls\AbstractApiCall;
 use Qdt01\AgRest\ApiCalls\ApiCallResultInterface;
 use Qdt01\AgRest\ApiCalls\CommandApiCallInterface;
@@ -22,6 +24,7 @@ class CreateOneProducerApiCall extends AbstractApiCall implements CommandApiCall
 
 	/**
 	 * CreateOneProducerApiCall constructor.
+	 * @param Producer $producer
 	 */
 	public function __construct(Producer $producer)
 	{
@@ -42,12 +45,18 @@ class CreateOneProducerApiCall extends AbstractApiCall implements CommandApiCall
 		return $this->model;
 	}
 
-	/**
-	 * perform the call
-	 * @return mixed
-	 */
-	public function call(): ApiCallResultInterface
+	public function getRequest(): RequestInterface
 	{
-		// TODO: Implement call() method.
+		// TODO: Implement getRequest() method.
+	}
+
+	public function setResponse(ResponseInterface $response): void
+	{
+		// TODO: Implement setResponse() method.
+	}
+
+	public function getApiCallResult(): ApiCallResultInterface
+	{
+		// TODO: Implement getApiCallResult() method.
 	}
 }

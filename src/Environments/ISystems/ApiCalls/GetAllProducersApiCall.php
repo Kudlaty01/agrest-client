@@ -2,11 +2,12 @@
 
 namespace Qdt01\AgRest\Environments\ISystems\ApiCalls;
 
+use Psr\Http\Message\ResponseInterface;
 use Qdt01\AgRest\ApiCalls\AbstractQueryApiCall;
 use Qdt01\AgRest\ApiCalls\ApiCallResultInterface;
 use Qdt01\AgRest\Domains\ModelDomainInterface;
+use Qdt01\AgRest\Environments\ISystems\Models\Adapters\ResponseToProducerAdapter;
 use Qdt01\AgRest\Modules\ISystems\Domains\ProducerModelDomain;
-use Qdt01\AgRest\Modules\ISystems\Models\ModelInterface;
 
 /**
  * Class GetAllProducersApiCall
@@ -24,17 +25,15 @@ class GetAllProducersApiCall extends AbstractQueryApiCall
 		return $this->modelDomain;
 	}
 
-	function getModel(): ModelInterface
+	public function setResponse(ResponseInterface $response): void
 	{
-		// TODO: Implement getModel() method.
+		$this->responseToModelAdapter = new ResponseToProducerAdapter($response);
+		$this->model                  = $this->responseToModelAdapter->getModel();
 	}
 
-	/**
-	 * perform the call
-	 * @return mixed
-	 */
-	public function call(): ApiCallResultInterface
+	public function getApiCallResult(): ApiCallResultInterface
 	{
-		// TODO: Implement call() method.
+		return new ProducerApiCallResult($this->model);
 	}
+
 }

@@ -2,7 +2,7 @@
 
 namespace Qdt01\AgRest\Modules\ISystems\Models;
 
-use Qdt01\AgRest\Models\{DefaultArrayModelAdapterTrait};
+use Qdt01\AgRest\Models\ModelResultInterface;
 
 /**
  * Adapter class ProducerJson
@@ -10,7 +10,7 @@ use Qdt01\AgRest\Models\{DefaultArrayModelAdapterTrait};
  *
  * @package \Qdt01\AgRest\Modules\ISystems\Models
  */
-class ProducerArray implements ModelArrayInterface
+class ProducerArray implements ModelResultInterface
 {
 
 

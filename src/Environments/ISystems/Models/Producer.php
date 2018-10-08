@@ -2,12 +2,14 @@
 
 namespace Qdt01\AgRest\Modules\ISystems\Models;
 
+use Qdt01\AgRest\Models\ModelResultInterface;
+
 /**
  * Class Producer
  *
  * @package \Qdt01\AgRest\Models
  */
-class Producer implements ModelInterface
+class Producer implements ModelInterface, ModelResultInterface
 {
 	//region Fields
 	/**
