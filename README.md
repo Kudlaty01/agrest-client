@@ -56,5 +56,4 @@ Authentication methods may be added via implementation of `AuthenticationInterfa
 ### Remarks
 I am still considering if implementing official _PSR-7_ interfaces was the best idea, as it blocks usage of php7 methods definitions (type-defined parameters)\
 After time I am not so sure about replaceable validators and filters components registration in DependencyResolver, and next time would end up with in-place instantions instead.\
-Also still considering Domain layer, which I might find rather discussive
 For particular models I have decided to put Adapters directory separately for each model for more consistent further ApiCalls implementations
