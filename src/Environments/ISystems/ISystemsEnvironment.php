@@ -30,6 +30,7 @@ class ISystemsEnvironment extends AbstractEnvironment
 	 * ISystemsEnvironment constructor.
 	 * @param null|string $user
 	 * @param null|string $password
+	 * @throws \Qdt01\AgRest\Exceptions\UnresolvedDependencyException
 	 */
 	public function __construct(?string $user = null, ? string $password = null)
 	{
