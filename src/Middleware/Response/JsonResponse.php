@@ -2,13 +2,13 @@
 
 namespace Qdt01\AgRest\Middleware\Response;
 
-use Psr\Http\Message\{ResponseInterface, StreamFactoryInterface};
+use Psr\Http\Message\{ResponseInterface, StreamFactoryInterface, StreamInterface};
 use Qdt01\AgRest\Middleware\{Filters\Message\HeaderValueFilterInterface,
 	Stream\Stream,
 	Validators\Message\HeaderNameValidatorInterface,
 	Validators\Message\HeaderValueValidatorInterface,
-	Validators\Message\ProtocolVersionValidatorInterface,
 	Validators\Message\MessageStreamValidatorInterface,
+	Validators\Message\ProtocolVersionValidatorInterface,
 	Validators\Response\StatusCode\ReasonPhraseValidatorInterface,
 	Validators\Response\StatusCode\StatusCodeValidatorInterface};
 
@@ -57,7 +57,7 @@ class JsonResponse extends ContentTypeResponse
 	}
 
 	public function initialize(
-		$data,
+		$data = 'php://memory',
 		int $status = 200,
 		array $headers = []
 	): ResponseInterface
@@ -104,7 +104,7 @@ class JsonResponse extends ContentTypeResponse
 		return $this->updateBodyFor($clone);
 	}
 
-	private function createBodyFromJson(string $json): Stream
+	private function createBodyFromJson(string $json): StreamInterface
 	{
 		$mode = Stream::MODE_READ_WRITE_RESET;
 		$body = $this->getStream(fopen('php://temp', $mode), $mode);
