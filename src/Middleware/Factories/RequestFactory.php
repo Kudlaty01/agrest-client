@@ -7,8 +7,8 @@ use Qdt01\AgRest\Middleware\{Filters\Message\HeaderValueFilterInterface,
 	Request\Request,
 	Validators\Message\HeaderNameValidatorInterface,
 	Validators\Message\HeaderValueValidatorInterface,
-	Validators\Message\ProtocolVersionValidatorInterface,
 	Validators\Message\MessageStreamValidatorInterface,
+	Validators\Message\ProtocolVersionValidatorInterface,
 	Validators\Request\MethodValidatorInterface,
 	Validators\Request\RequestTargetValidatorInterface};
 
@@ -72,7 +72,6 @@ class RequestFactory implements RequestFactoryInterface
 		RequestTargetValidatorInterface $requestTargetValidator
 	)
 	{
-		parent::__construct($protocolVersionValidator, $headerNameValidator, $headerValueValidator, $headerValueFilter);
 		$this->headerNameValidator      = $headerNameValidator;
 		$this->headerValueValidator     = $headerValueValidator;
 		$this->protocolVersionValidator = $protocolVersionValidator;
