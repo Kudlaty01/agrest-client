@@ -51,7 +51,7 @@ class ISystemsEnvironment extends AbstractEnvironment
 	}
 
 	/**
-	 * @param BasicAuthorization $authentication
+	 * @param AuthorizationInterface $authentication
 	 * @return AuthorizationInterface
 	 */
 	public function configureAuthorization(AuthorizationInterface $authentication): AuthorizationInterface
@@ -67,6 +67,7 @@ class ISystemsEnvironment extends AbstractEnvironment
 			$user = $this->user;
 			$pass = $this->password;
 		}
+		/** @var BasicAuthorization $authentication */
 		$authentication->setCredentials($user, $pass);
 		return $authentication;
 	}
