@@ -2,8 +2,6 @@
 
 namespace Qdt01\AgRest\Services;
 
-use Qdt01\AgRest\Middleware\Validators\HeaderValueFilterInterface;
-
 /**
  * Interface DependencyRegistrarInterface
  * name may be confusing, but it defines a main class being able to register dependencies to DependencyRegistrar
