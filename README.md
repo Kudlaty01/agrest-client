@@ -38,9 +38,9 @@ For each domain api calls will operate on implementations of `ModelToRequestAdap
 
 
 ## Extensibility
-Some components may be replaced with implementations of the same interface (extension of abstract classes already implemented the particular interface is highly recommended to use the default behavior). To use it, their dependency resolution must be registered to `DependencyReolver`. This may be module-specific with registration in main module file or as a default implementation in `Core` class in `src` directory. They both implement `DependencyRegistrarInterface`, which is an interface of all classes being able to add their own dependencies. They have an order property too to define the override order of the implementations for their interfaces (modules with lower `Order` property will replace the implementations defined in modules with higher order).\
-Adapters for Request and Response have also to be written for each new domain.\
-Would also be nice to implement an ApiCallResponse
+Some components may be replaced with implementations of the same interface (extension of abstract classes already implemented the particular interface is highly recommended to use the default behavior). To use it, their dependency resolution must be registered to `DependencyReolver`. This may be environment-specific with registration in main environment file or as a default implementation in `Core` class in `src` directory. They both implement `DependencyRegistrarInterface`, which is an interface of all classes being able to add their own dependencies. They have an order property too to define the override order of the implementations for their interfaces (modules with lower `Order` property will replace the implementations defined in modules with higher order).
+### Connector layer
+Currently only connector layer may be replaced if one finds anything better than curl, but a `ResponseAdapterInterface` would have to be implemented to adapt new connector result to PSR-7 Response
 
 ### Authentication
 Authentication methods may be added via implementation of `AuthenticationInterface` and registering the dependency in the desired module (or in Core if it is meant to be new default authentication method)
