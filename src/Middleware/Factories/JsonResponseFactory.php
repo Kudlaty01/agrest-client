@@ -33,5 +33,6 @@ class JsonResponseFactory extends AbstractResponseFactory
 			$this->streamFactory,
 			$this->statusCodeValidator,
 			$this->reasonValidator);
-		return $response->withStatus($code, $reasonPhrase);	}
+		return $response->withStatus($code, $reasonPhrase);
+	}
 }

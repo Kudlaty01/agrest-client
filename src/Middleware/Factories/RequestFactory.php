@@ -7,8 +7,8 @@ use Qdt01\AgRest\Middleware\{Filters\Message\HeaderValueFilterInterface,
 	Request\Request,
 	Validators\Message\HeaderNameValidatorInterface,
 	Validators\Message\HeaderValueValidatorInterface,
-	Validators\Message\ProtocolVersionValidatorInterface,
 	Validators\Message\MessageStreamValidatorInterface,
+	Validators\Message\ProtocolVersionValidatorInterface,
 	Validators\Request\MethodValidatorInterface,
 	Validators\Request\RequestTargetValidatorInterface};
 
@@ -57,9 +57,11 @@ class RequestFactory implements RequestFactoryInterface
 	 * @param HeaderNameValidatorInterface      $headerNameValidator
 	 * @param HeaderValueValidatorInterface     $headerValueValidator
 	 * @param ProtocolVersionValidatorInterface $protocolVersionValidator
+	 * @param HeaderValueFilterInterface        $headerValueFilter
+	 * @param MessageStreamValidatorInterface   $streamValidator
+	 * @param StreamFactoryInterface            $streamFactory
 	 * @param MethodValidatorInterface          $methodValidator
 	 * @param RequestTargetValidatorInterface   $requestTargetValidator
-	 * @param HeaderValueFilterInterface        $headerValueFilter
 	 */
 	public function __construct(
 		HeaderNameValidatorInterface $headerNameValidator,
@@ -72,7 +74,6 @@ class RequestFactory implements RequestFactoryInterface
 		RequestTargetValidatorInterface $requestTargetValidator
 	)
 	{
-		parent::__construct($protocolVersionValidator, $headerNameValidator, $headerValueValidator, $headerValueFilter);
 		$this->headerNameValidator      = $headerNameValidator;
 		$this->headerValueValidator     = $headerValueValidator;
 		$this->protocolVersionValidator = $protocolVersionValidator;

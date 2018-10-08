@@ -3,6 +3,8 @@
 namespace Qdt01\AgRest\Middleware\Filters\Message;
 
 
+use Qdt01\AgRest\Middleware\Filters\FilterInterface;
+
 /**
  * Class HeaderValuesFilter for header values filtering
  *

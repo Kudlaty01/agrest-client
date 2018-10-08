@@ -30,6 +30,7 @@ class ISystemsEnvironment extends AbstractEnvironment
 	 * ISystemsEnvironment constructor.
 	 * @param null|string $user
 	 * @param null|string $password
+	 * @throws \Qdt01\AgRest\Exceptions\UnresolvedDependencyException
 	 */
 	public function __construct(?string $user = null, ? string $password = null)
 	{
@@ -41,6 +42,7 @@ class ISystemsEnvironment extends AbstractEnvironment
 	function registerDependencies(DependencyResolver $dependencyRegistrar): DependencyResolver
 	{
 		$dependencyRegistrar->addFactoryDependency(ResponseFactoryInterface::class, JsonResponseFactory::class);
+		return $dependencyRegistrar;
 	}
 
 	function getEndpointBaseAddress(): string
@@ -49,7 +51,7 @@ class ISystemsEnvironment extends AbstractEnvironment
 	}
 
 	/**
-	 * @param BasicAuthorization $authentication
+	 * @param AuthorizationInterface $authentication
 	 * @return AuthorizationInterface
 	 */
 	public function configureAuthorization(AuthorizationInterface $authentication): AuthorizationInterface
@@ -65,6 +67,7 @@ class ISystemsEnvironment extends AbstractEnvironment
 			$user = $this->user;
 			$pass = $this->password;
 		}
+		/** @var BasicAuthorization $authentication */
 		$authentication->setCredentials($user, $pass);
 		return $authentication;
 	}

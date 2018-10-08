@@ -25,7 +25,8 @@ class StreamFactory implements StreamFactoryInterface
 
 	/**
 	 * StreamFactory constructor.
-	 * @param StreamValidatorInterface $streamResourceValidator
+	 * @param StreamValidatorInterface   $streamResourceValidator
+	 * @param ResourceValidatorInterface $resourceValidator
 	 */
 	public function __construct(StreamValidatorInterface $streamResourceValidator,
 	                            ResourceValidatorInterface $resourceValidator)
@@ -34,10 +35,6 @@ class StreamFactory implements StreamFactoryInterface
 		$this->resourceValidator = $resourceValidator;
 	}
 
-
-	/**
-	 * {@inheritDoc}
-	 */
 	public function createStream(string $content = ''): StreamInterface
 	{
 		$resource = fopen('php://temp', Stream::MODE_READ_WRITE);
@@ -47,18 +44,12 @@ class StreamFactory implements StreamFactoryInterface
 		return $this->createStreamFromResource($resource);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public function createStreamFromFile(string $file, string $mode = 'r'): StreamInterface
 	{
 		$stream = new Stream($this->streamValidator);
 		return $stream->attach($file, $mode);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public function createStreamFromResource($resource): StreamInterface
 	{
 		$this->resourceValidator->validate($resource);

@@ -17,7 +17,7 @@ class ResourceValidator implements ResourceValidatorInterface
 	public function validate($value): void
 	{
 		if (!is_resource($value) || 'stream' !== get_resource_type($value)) {
-			throw new Exception\InvalidArgumentException(
+			throw new \InvalidArgumentException(
 				'Invalid stream provided; must be a stream resource'
 			);
 		}
