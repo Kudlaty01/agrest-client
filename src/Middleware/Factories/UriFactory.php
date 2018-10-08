@@ -2,6 +2,7 @@
 
 namespace Qdt01\AgRest\Middleware\Factories;
 
+use Psr\Http\Message\UriInterface;
 use Qdt01\{AgRest\Middleware\Filters\Uri\FragmentFilterInterface,
 	AgRest\Middleware\Filters\Uri\PathFilterInterface,
 	AgRest\Middleware\Filters\Uri\QueryFilterInterface,
@@ -14,7 +15,6 @@ use Qdt01\{AgRest\Middleware\Filters\Uri\FragmentFilterInterface,
 	AgRest\Middleware\Validators\Uri\UriPartsValidatorInterface,
 	AgRest\Middleware\Validators\Uri\UserInfo\PasswordValidatorInterface,
 	AgRest\Middleware\Validators\Uri\UserInfo\UserValidatorInterface};
-use Windwalker\Uri\UriInterface;
 
 /**
  * Class UriFactory
