@@ -2,8 +2,8 @@
 
 namespace Qdt01\AgRest\Middleware;
 
+use Psr\Http\Message\RequestFactoryInterface;
 use Qdt01\AgRest\Middleware\Factories\RequestsFactoryFactory;
-use Qdt01\AgRest\Middleware\Factories\RequestsFactoryInterfaceBak;
 use Qdt01\AgRest\Middleware\Filters\Factories\HeaderValuesFilterDependencyFactory;
 use Qdt01\AgRest\Middleware\Filters\Message\HeaderValueFilterInterface;
 use Qdt01\AgRest\Middleware\Filters\Uri\FragmentFilter;
@@ -104,8 +104,8 @@ class Core implements DependencyRegistrarInterface
 			QueryFilterInterface::class              => QueryFilter::class,
 		];
 		$factories    = [
-			HeaderValueFilterInterface::class  => HeaderValuesFilterDependencyFactory::class,
-			RequestsFactoryInterfaceBak::class => RequestsFactoryFactory::class,
+			HeaderValueFilterInterface::class => HeaderValuesFilterDependencyFactory::class,
+			RequestFactoryInterface::class    => RequestsFactoryFactory::class,
 		];
 		$initializers = [
 
