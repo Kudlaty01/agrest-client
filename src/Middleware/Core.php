@@ -108,7 +108,7 @@ class Core implements DependencyRegistrarInterface
 			RequestFactoryInterface::class    => RequestsFactoryFactory::class,
 		];
 		$initializers = [
-
+			// TODO: implement some initializers
 		];
 		foreach ($invokables as $interface => $classConstructor) {
 			$dependencyRegistrar->addInvokableDependency($interface, $classConstructor);
