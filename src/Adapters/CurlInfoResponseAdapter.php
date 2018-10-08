@@ -45,6 +45,7 @@ class CurlInfoResponseAdapter implements ResponseAdapterInterface
 	{
 		$this->curlInfo     = $curlInfo;
 		$this->responseBody = $responseBody;
+		return $this;
 	}
 
 	public function getResponse(): ResponseInterface
