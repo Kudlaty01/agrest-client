@@ -32,7 +32,7 @@ class ISystemsEnvironment extends AbstractEnvironment
 	 * @param null|string $password
 	 * @throws \Qdt01\AgRest\Exceptions\UnresolvedDependencyException
 	 */
-	public function __construct(?string $user = null, ? string $password = null)
+	public function __construct(?string $user = null, ?string $password = null)
 	{
 		parent::__construct();
 		$this->user     = $user;
