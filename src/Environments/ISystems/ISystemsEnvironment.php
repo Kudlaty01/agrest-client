@@ -42,6 +42,7 @@ class ISystemsEnvironment extends AbstractEnvironment
 	function registerDependencies(DependencyResolver $dependencyRegistrar): DependencyResolver
 	{
 		$dependencyRegistrar->addFactoryDependency(ResponseFactoryInterface::class, JsonResponseFactory::class);
+		return $dependencyRegistrar;
 	}
 
 	function getEndpointBaseAddress(): string
